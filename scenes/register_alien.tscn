@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cts6fo20wci7t"]
 
 [ext_resource type="Texture2D" uid="uid://cxlmv2v8um2e" path="res://assets/logos/0d31c1ec163dd692aeb622318a44d373 - Editado.png" id="1_5p55f"]
-[ext_resource type="Script" uid="uid://bu4yjoxu0swai" path="res://script/control.gd" id="1_tjwpk"]
+[ext_resource type="Script" uid="uid://bu4yjoxu0swai" path="res://script/register_alien.gd" id="1_tjwpk"]
 [ext_resource type="PackedScene" uid="uid://cw5gsk5lo4rdp" path="res://scenes/cpu_particles_2d.tscn" id="2_lpubu"]
 [ext_resource type="FontFile" uid="uid://cdgyefhxdjuo" path="res://assets/Font/BADABB__.TTF" id="2_r67kn"]
 [ext_resource type="Texture2D" uid="uid://b8gn3ispva8o4" path="res://assets/logos/which-omnitrix-logo-style-placement-was-your-favorite-why-v0-nuawv95u9fed1 - Editado.png" id="3_8n18e"]
@@ -123,7 +123,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 theme_override_styles/panel = SubResource("StyleBoxFlat_1p5nq")
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/content_registered"]
+[node name="registered_btn" type="Button" parent="MarginContainer/VBoxContainer/content_registered"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -132,7 +132,7 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/content_registered/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/content_registered/registered_btn"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -144,11 +144,11 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/content_registered/Button/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/content_registered/registered_btn/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/content_registered/Button/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/content_registered/registered_btn/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(44, 44)
 layout_mode = 2
 size_flags_stretch_ratio = 0.5
@@ -156,7 +156,7 @@ texture = ExtResource("3_8n18e")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/content_registered/Button/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/content_registered/registered_btn/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_tjwpk")
 theme_override_font_sizes/font_size = 16
@@ -176,7 +176,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 26
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 26
 theme_override_constants/margin_bottom = 20
 
@@ -228,6 +228,8 @@ text = "Serie do alien"
 
 [node name="serie_input" type="OptionButton" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/serie"]
 layout_mode = 2
+flat = true
+selected = 0
 item_count = 2
 popup/item_0/text = "Classico"
 popup/item_0/id = 0
@@ -236,6 +238,7 @@ popup/item_1/id = 1
 
 [node name="unlock_num" type="VBoxContainer" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 8
 
 [node name="unlock_num" type="Label" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/unlock_num"]
 layout_mode = 2
@@ -250,13 +253,24 @@ custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 50)
+[node name="unlock_num_text" type="Label" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/unlock_num"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("4_tjwpk")
+theme_override_font_sizes/font_size = 20
+text = "10"
+horizontal_alignment = 1
+
+[node name="save_btn" type="Button" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("4_tjwpk")
+theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_hob4j")
 text = "Cadastrar"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/content_registered/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/content_registered/registered_btn" to="." method="_on_registered_btn_pressed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/unlock_num/unlock_num_input" to="." method="_on_unlock_num_input_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/save_btn" to="." method="_on_save_btn_pressed"]

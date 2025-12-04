@@ -1,0 +1,197 @@
+[gd_scene load_steps=10 format=3 uid="uid://ckianox4lv03"]
+
+[ext_resource type="PackedScene" uid="uid://cw5gsk5lo4rdp" path="res://scenes/cpu_particles_2d.tscn" id="1_2tv2v"]
+[ext_resource type="Script" uid="uid://6bimb54ob66q" path="res://script/registered_aliens.gd" id="1_vps01"]
+[ext_resource type="Texture2D" uid="uid://cxlmv2v8um2e" path="res://assets/logos/0d31c1ec163dd692aeb622318a44d373 - Editado.png" id="2_vps01"]
+[ext_resource type="FontFile" uid="uid://cdgyefhxdjuo" path="res://assets/Font/BADABB__.TTF" id="3_qpkk1"]
+[ext_resource type="Texture2D" uid="uid://b8gn3ispva8o4" path="res://assets/logos/which-omnitrix-logo-style-placement-was-your-favorite-why-v0-nuawv95u9fed1 - Editado.png" id="4_hypwf"]
+[ext_resource type="FontFile" uid="uid://dmrfmgqky1a7l" path="res://assets/Font/GROBOLD.ttf" id="5_x1fpm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xtuy"]
+bg_color = Color(0.12156863, 0.13333334, 0.17254902, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6ufn"]
+bg_color = Color(0.12156863, 0.13333334, 0.17254902, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhlon"]
+bg_color = Color(0.12156863, 0.13333334, 0.17254902, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+
+[node name="registered_aliens" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vps01")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5882353, 0.7019608, 0.16078432, 1)
+
+[node name="CPUParticles2D" parent="." instance=ExtResource("1_2tv2v")]
+position = Vector2(400, 938)
+
+[node name="CPUParticles2D2" parent="." instance=ExtResource("1_2tv2v")]
+position = Vector2(-7, 938)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="header" type="Panel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(269, 124)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3xtuy")
+
+[node name="margin_header" type="MarginContainer" parent="MarginContainer/VBoxContainer/header"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 4.0
+offset_right = 320.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="header" type="HBoxContainer" parent="MarginContainer/VBoxContainer/header/margin_header"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/header/margin_header/header"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("2_vps01")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/header/margin_header/header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_qpkk1")
+theme_override_font_sizes/font_size = 40
+text = "Character
+      APP"
+
+[node name="content_registered" type="Panel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_m6ufn")
+
+[node name="register_alien_btn" type="Button" parent="MarginContainer/VBoxContainer/content_registered"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/content_registered/register_alien_btn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/content_registered/register_alien_btn/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/content_registered/register_alien_btn/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+size_flags_stretch_ratio = 0.5
+texture = ExtResource("4_hypwf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/content_registered/register_alien_btn/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_x1fpm")
+theme_override_font_sizes/font_size = 16
+text = "Acessar cadastro de Aliens"
+
+[node name="content_form" type="Panel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.26
+theme_override_styles/panel = SubResource("StyleBoxFlat_fhlon")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/content_form"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 26
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/content_form/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 36
+
+[node name="title" type="Label" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 77)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_x1fpm")
+theme_override_font_sizes/font_size = 36
+text = "Aliens Cadastrados"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/content_registered/register_alien_btn" to="." method="_on_register_alien_btn_pressed"]

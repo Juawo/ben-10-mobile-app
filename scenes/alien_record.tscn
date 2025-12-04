@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://n4s2v2id55a"]
+
+[ext_resource type="FontFile" uid="uid://dmrfmgqky1a7l" path="res://assets/Font/GROBOLD.ttf" id="1_08xvl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8k3p"]
+bg_color = Color(0.12156863, 0.13333334, 0.17254902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="alien_record" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.72800004
+anchor_bottom = 0.044000003
+offset_right = -259.936
+offset_bottom = -0.3480034
+theme_override_styles/panel = SubResource("StyleBoxFlat_f8k3p")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_08xvl")
+theme_override_font_sizes/font_size = 8
+text = "De Ben10 Classico"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="alien_name" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Chama	"
+
+[node name="race" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Fogos"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="text" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Numero de desbloqueio"
+
+[node name="unlock_num" type="Label" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "10"
