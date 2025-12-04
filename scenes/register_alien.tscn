@@ -229,7 +229,6 @@ text = "Serie do alien"
 [node name="serie_input" type="OptionButton" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/serie"]
 layout_mode = 2
 flat = true
-selected = 0
 item_count = 2
 popup/item_0/text = "Classico"
 popup/item_0/id = 0
@@ -252,6 +251,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+value = 10.0
 
 [node name="unlock_num_text" type="Label" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/unlock_num"]
 layout_mode = 2

@@ -12,21 +12,24 @@ func _on_unlock_num_input_value_changed(value: float) -> void:
 	unlock_num_text.text = str(int(value));
 
 func validate_form() -> bool:
-	if(!name_input ):
+	if(!name_input.text):
 		return false
-	if(!race_input):
+	if(!race_input.text):
 		return false
-	if(!serie_input):
+	if(!serie_input.text):
 		return false
-	if(!unlock_num_input):
+	if(!unlock_num_input.value):
 		return false
 	return true
 	
 
 func _on_save_btn_pressed() -> void:
+	print("Ben10")
 	if(!validate_form()):
+		print("Alien invalido")
 		return
 	var new_alien = Alien.new(name_input.text, race_input.text, serie_input.text, int(unlock_num_input.value))
+	print(new_alien.name)
 	SessionState.save_new_alien(new_alien)
 
 
