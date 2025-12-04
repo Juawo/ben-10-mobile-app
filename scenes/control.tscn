@@ -1,0 +1,262 @@
+[gd_scene load_steps=11 format=3 uid="uid://cts6fo20wci7t"]
+
+[ext_resource type="Texture2D" uid="uid://cxlmv2v8um2e" path="res://assets/logos/0d31c1ec163dd692aeb622318a44d373 - Editado.png" id="1_5p55f"]
+[ext_resource type="Script" uid="uid://bu4yjoxu0swai" path="res://script/control.gd" id="1_tjwpk"]
+[ext_resource type="PackedScene" uid="uid://cw5gsk5lo4rdp" path="res://scenes/cpu_particles_2d.tscn" id="2_lpubu"]
+[ext_resource type="FontFile" uid="uid://cdgyefhxdjuo" path="res://assets/Font/BADABB__.TTF" id="2_r67kn"]
+[ext_resource type="Texture2D" uid="uid://b8gn3ispva8o4" path="res://assets/logos/which-omnitrix-logo-style-placement-was-your-favorite-why-v0-nuawv95u9fed1 - Editado.png" id="3_8n18e"]
+[ext_resource type="FontFile" uid="uid://dmrfmgqky1a7l" path="res://assets/Font/GROBOLD.ttf" id="4_tjwpk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpubu"]
+bg_color = Color(0.12156863, 0.13333334, 0.17254902, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p5nq"]
+bg_color = Color(0.12156863, 0.13333334, 0.17254902, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lt2xq"]
+bg_color = Color(0.12156863, 0.13333334, 0.17254902, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hob4j"]
+bg_color = Color(0.5882353, 0.7019608, 0.16078432, 1)
+border_width_bottom = 5
+border_color = Color(0.41414437, 0.43759742, 0.5180078, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tjwpk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5882353, 0.7019608, 0.16078432, 1)
+
+[node name="CPUParticles2D" parent="." instance=ExtResource("2_lpubu")]
+position = Vector2(400, 938)
+
+[node name="CPUParticles2D2" parent="." instance=ExtResource("2_lpubu")]
+position = Vector2(-7, 938)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="header" type="Panel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(269, 124)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lpubu")
+
+[node name="margin_header" type="MarginContainer" parent="MarginContainer/VBoxContainer/header"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 4.0
+offset_right = 320.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="header" type="HBoxContainer" parent="MarginContainer/VBoxContainer/header/margin_header"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/header/margin_header/header"]
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("1_5p55f")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/header/margin_header/header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_r67kn")
+theme_override_font_sizes/font_size = 40
+text = "Character
+      APP"
+
+[node name="content_registered" type="Panel" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme_override_styles/panel = SubResource("StyleBoxFlat_1p5nq")
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/content_registered"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/content_registered/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/content_registered/Button/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/content_registered/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+size_flags_stretch_ratio = 0.5
+texture = ExtResource("3_8n18e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/content_registered/Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_tjwpk")
+theme_override_font_sizes/font_size = 16
+text = "Acesse os aliens cadastrados"
+
+[node name="content_form" type="Panel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.26
+theme_override_styles/panel = SubResource("StyleBoxFlat_lt2xq")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/content_form"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 26
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 26
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/content_form/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 36
+
+[node name="title" type="Label" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_tjwpk")
+theme_override_font_sizes/font_size = 36
+text = "Novo Alien"
+horizontal_alignment = 1
+
+[node name="name" type="VBoxContainer" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/name"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_tjwpk")
+theme_override_font_sizes/font_size = 20
+text = "Nome do alien"
+
+[node name="name_input" type="LineEdit" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/name"]
+layout_mode = 2
+placeholder_text = "Ex: Chama"
+
+[node name="race" type="VBoxContainer" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="race" type="Label" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/race"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_tjwpk")
+theme_override_font_sizes/font_size = 20
+text = "Raca do alien"
+
+[node name="race_input" type="LineEdit" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/race"]
+layout_mode = 2
+placeholder_text = "Ex: Tetramando"
+
+[node name="serie" type="VBoxContainer" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="serie" type="Label" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/serie"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_tjwpk")
+theme_override_font_sizes/font_size = 20
+text = "Serie do alien"
+
+[node name="serie_input" type="OptionButton" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/serie"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "Classico"
+popup/item_0/id = 0
+popup/item_1/text = "Forca alienigena"
+popup/item_1/id = 1
+
+[node name="unlock_num" type="VBoxContainer" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="unlock_num" type="Label" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/unlock_num"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_tjwpk")
+theme_override_font_sizes/font_size = 20
+text = "Numero de 
+desbloqueio"
+horizontal_alignment = 1
+
+[node name="unlock_num_input" type="HSlider" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/unlock_num"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("4_tjwpk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hob4j")
+text = "Cadastrar"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/content_registered/Button" to="." method="_on_button_pressed"]

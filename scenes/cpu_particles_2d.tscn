@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw5gsk5lo4rdp"]
+
+[ext_resource type="Texture2D" uid="uid://tu4j2ckkmalc" path="res://assets/particle.png" id="1_dti5m"]
+
+[sub_resource type="Curve" id="Curve_6vysw"]
+_data = [Vector2(0.05232559, 1), 0.0, 0.0, 0, 0, Vector2(0.4941861, 1), 0.0, 0.0, 0, 0, Vector2(0.83720934, 0.75280905), -1.2883897, -1.2883897, 0, 0, Vector2(1, 0.29213488), -0.062341444, 0.0, 0, 0]
+point_count = 4
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+amount = 15
+texture = ExtResource("1_dti5m")
+lifetime = 2.4
+speed_scale = 0.5
+direction = Vector2(0, -10)
+spread = 22.73
+gravity = Vector2(0, -45)
+initial_velocity_min = 144.33
+initial_velocity_max = 216.49
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_6vysw")
