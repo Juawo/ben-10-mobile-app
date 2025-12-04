@@ -6,6 +6,9 @@ var registered_aliens_scene : PackedScene = preload("res://scenes/registered_ali
 @onready var race_input: LineEdit = $MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/race/race_input
 @onready var serie_input: OptionButton = $MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/serie/serie_input
 @onready var unlock_num_input: HSlider = $MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/unlock_num/unlock_num_input
+@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
+@onready var cpu_particles_2d_2: CPUParticles2D = $CPUParticles2D2
+@onready var background: ColorRect = $background
 
 
 func _on_unlock_num_input_value_changed(value: float) -> void:
@@ -31,7 +34,24 @@ func _on_save_btn_pressed() -> void:
 	var new_alien = Alien.new(name_input.text, race_input.text, serie_input.text, int(unlock_num_input.value))
 	print(new_alien.name)
 	SessionState.save_new_alien(new_alien)
-
+	feedback_added_alien()
 
 func _on_registered_btn_pressed() -> void:
 	get_tree().change_scene_to_packed(registered_aliens_scene)
+
+func feedback_added_alien() -> void :
+	var yellow_color = Color("#f7c818")
+	var original_color = $background.color
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property($background, "color", yellow_color, 0.2)
+	cpu_particles_2d.speed_scale = 3.0
+	cpu_particles_2d_2.speed_scale = 3.0
+	tween.tween_interval(0.5)
+	tween.tween_property($background, "color", original_color, 0.5)
+	tween.tween_callback(func():
+		cpu_particles_2d.speed_scale = 1.0
+		cpu_particles_2d_2.speed_scale = 1.0
+	)
+	
+	
