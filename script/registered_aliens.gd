@@ -1,6 +1,6 @@
 extends Control
 
-var register_scene  = load("res://scenes/register_alien.tscn")
+var register_scene  = "res://scenes/register_alien.tscn"
 var alien_record_scene : PackedScene = preload("res://scenes/alien_record.tscn")
 @onready var v_box_container: VBoxContainer = $MarginContainer/VBoxContainer/content_form/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer
 
@@ -16,4 +16,4 @@ func populate_screen(data : Array[Alien]):
 	print("Quantidade : ", len(SessionState.saved_aliens))
 
 func _on_register_alien_btn_pressed() -> void:
-	get_tree().change_scene_to_packed(register_scene)
+	SceneTransition.change_scene(register_scene)

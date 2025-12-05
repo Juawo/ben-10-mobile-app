@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SessionState="*res://script/SessionState.gd"
+SceneTransition="*res://scenes/transition.tscn"
 
 [display]
 
